@@ -12,6 +12,23 @@ app = Flask(__name__)
 app.url_map.converters['float'] = FloatConverter
 
 
+@app.route('/')
+def base():
+    return ('<h1>Мега апи</h1>'
+            '<ol>'
+            '<li><a href="/sum/1/2"><a href="/sum/1/2">Сумма</a></li>'
+            '<li><a href="/sub/1/2">Вычитание</a></li>'
+            '<li><a href="/div/1/2">Деление</a></li>'
+            '<li><a href="/mul/1/2">Умножение</a></li>'
+            '<li><a href="/div_int/1/2">Целочисленное деление</a></li>'
+            '<li><a href="/mod/1/2">Деление с остатком</a></li>'
+            '<li><a href="/sqrt/2">Корень</a></li>'
+            '<li><a href="/sin/1">Синус</a></li>'
+            '<li><a href="/cos/1">Косинус</a></li>'
+            '<li><a href="/tan/1">Тангенс</a></li>'
+            '<li><a href="/sqr/1/2">Степень</a></li>'
+            '</ol>')
+
 @app.route('/sum/<float:a>/<float:b>')
 def sum(a, b):
     return str(a + b)
